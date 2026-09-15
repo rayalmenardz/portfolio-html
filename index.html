@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ray Almenares — Portafolio</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --bg: #12151a;
+    --bg-elevated: #1a1e26;
+    --line: #2a2f3a;
+    --text: #e9ebef;
+    --text-dim: #9aa1ad;
+    --accent: #6ee7c4;
+    --mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-kicker{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero h1{
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 14ch;
+    letter-spacing: -0.01em;
+  }
+
+  .hero p{
+    margin-top: 20px;
+    max-width: 56ch;
+    color: var(--text-dim);
+    font-size: 17px;
+  }
+
+  .hero-links{
+    margin-top: 32px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a{
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: border-color .15s ease;
+  }
+
+  .hero-links a:hover{ border-color: var(--accent); }
+
+  /* ---------- SECTION LABEL ---------- */
+  .section-head{
+    padding: 56px 0 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .section-head h2{
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .section-head span{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- PROJECT LIST ---------- */
+  .project{
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+  }
+
+  .project:last-of-type{
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-tag{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    padding-top: 4px;
+  }
+
+  .project-body h3{
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .project-body .desc{
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 60ch;
+  }
+
+  .project-note{
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-left: 2px solid var(--accent);
+    padding-left: 10px;
+  }
+
+  .stack{
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .stack span{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+
+  .project-actions{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .project-actions a{
+    font-size: 14px;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--line);
+    transition: border-color .15s ease, color .15s ease;
+  }
+
+  .project-actions a.primary{
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .project-actions a:hover{ border-color: var(--accent); }
+
+  .demo-frame{
+    margin-top: 20px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-elevated);
+  }
+
+  .demo-frame iframe{
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+  }
+
+  .demo-frame .demo-label{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding: 56px 0 80px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  footer a{
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  @media (max-width: 640px){
+    .project{
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    header.hero{ padding: 64px 0 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-kicker">portafolio · v0</div>
+    <h1>Construyo proyectos con IA para resolver problemas reales</h1>
+    <p>
+      Esta es una primera versión de mi portafolio. Reúne tres proyectos
+      desarrollados con distintas herramientas de automatización e IA,
+      con datos de ejemplo en lugar de información real de producción.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/rayalmenardz" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/ray-almenares-rdz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ray.almenardz@gmail.com">Correo</a>
+    </div>
+  </header>
+
+  <section class="section-head">
+    <h2>Proyectos</h2>
+    <span>03</span>
+  </section>
+
+  <!-- PROYECTO 1: APPS SCRIPT -->
+  <article class="project">
+    <div class="project-tag">01</div>
+    <div class="project-body">
+      <h3>Automatización de RFPs | Apps Script</h3>
+      <p class="desc">
+        Aplicación empresarial que automatiza el análisis y la redacción de respuestas a solicitudes de propuestas (RFPs) en minutos mediante la API de Gemini (3.5-flash). 
+        Integra un sistema de subida y procesamiento directo de documentos con clasificación por niveles de confianza, exportación en PDF y un chatbot interactivo para consultas técnicas en tiempo real. 
+        Cuenta con un frontend alojado en Google Apps Script con arquitectura serverless y delegación segura de permisos.
+      </p>
+      <div class="stack">
+        <span>Google Apps Script</span>
+        <span>Google Sheets API</span>
+        <span>JavaScript</span>
+      </div>
+      <div class="project-actions">
+        <a class="primary" href="https://script.google.com/macros/s/AKfycbxPPUvIZVCPplx7OFODIkgy1NnM0sNgEzjfEVbAKz23HZpEk2f888xzGq5XpprlP0Ah/exec" target="_blank" rel="noopener">Ver demo</a>
+        <a href="https://github.com/rayalmenardz/rfp-automation" target="_blank" rel="noopener">Ver código</a>
+      </div>
+
+      <!-- Si el deploy de Apps Script permite iframe, descomenta esto: -->
+      <!--
+      <div class="demo-frame">
+        <div class="demo-label">demo en vivo</div>
+        <iframe src="URL_DEPLOY_APPS_SCRIPT" loading="lazy"></iframe>
+      </div>
+      -->
+    </div>
+  </article>
+
+  <!-- PROYECTO 2: N8N -->
+  <article class="project">
+    <div class="project-tag">02</div>
+    <div class="project-body">
+      <h3>Pipeline ETL Automatizado  | n8n</h3>
+      <p class="desc">
+        Workflow en n8n diseñado para automatizar el ciclo completo de extracción, transformación y carga (ETL) de datos de ventas desde HubSpot hacia Google Sheets. 
+        Normaliza identificadores complejos de pipelines, etapas y propietarios a nombres legibles, ejecutando además un microservicio en Python dentro de Docker para limpieza avanzada y cálculo de métricas temporales. 
+        Mantiene la base de datos libre de duplicados y optimizada para alimentar tableros de visualización.
+      </p>
+      <div class="stack">
+        <span>n8n</span>
+        <span>Webhooks</span>
+        <span>API REST</span>
+        <span>Python</span>
+      </div>
+      <div class="project-actions">
+        <a class="primary" href="https://github.com/rayalmenardz/data-analysis-workflow_n8n" target="_blank" rel="noopener">Ver documentación</a>
+        <a href="https://github.com/rayalmenardz/data-analysis-workflow_n8n/blob/main/LATAM%20_%20Automatizaci%C3%B3n%20An%C3%A1lisis%20de%20Datos.json" target="_blank" rel="noopener">Descargar JSON</a>
+      </div>
+      <p class="desc" style="margin-top:12px; font-size:13px;">
+        Este proyecto corrió en un entorno local, así que aquí se documenta
+        con capturas y el JSON exportado del flujo en lugar de una demo en vivo.
+      </p>
+    </div>
+  </article>
+
+  <!-- PROYECTO 3: DE TERCEROS -->
+  <article class="project">
+    <div class="project-tag">03</div>
+    <div class="project-body">
+      <h3>  SerfiApp | Colaborativo</h3>
+      <p class="desc">
+        Proyecto ganador del 1er lugar en la Hackatón Barranqui-IA 2026 (Categoría Fintech), creado para transformar la atención bancaria omnicanal. 
+        Orquesta agentes de IA proactivos para agilizar el servicio al cliente con RAG, hiper-personalizar la venta de productos financieros según comportamiento transaccional y ejecutar ofertas por geolocalización. 
+      </p>
+      <p class="project-note">
+        Proyecto hecho por <strong>equipo Dockers</strong>.
+        Diseñé la lógica de los agentes de Ventas y Servicio al Cliente, la arquitectura de base de datos y la presentación técnica ante el jurado experto.
+      </p>
+      <div class="stack">
+        <span>Agentes IA</span>
+        <span>Angular</span>
+        <span>.NET Framework</span>
+        <span>Python</span>
+        <span>Antigravity</span>
+        <span>RAG</span>
+        <span>SQL</span>
+      </div>
+      <div class="project-actions">
+        <a class="primary" href="https://github.com/rayalmenardz/serfi_app" target="_blank" rel="noopener">Fork</a>
+        <a href="https://www.linkedin.com/posts/ray-almenares-rdz_este-fin-de-semana-tuve-la-oportunidad-de-activity-7464827621290229761-fbTx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEizod0BKKE_-FHio8A5wlthLkAOi5wPOyI" target="_blank" rel="noopener">Publicación de LinkedIn</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <p>Hecho por Raymond Almenares · <a href="https://github.com/rayalmenardz" target="_blank" rel="noopener">github.com/rayalmenardz</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
